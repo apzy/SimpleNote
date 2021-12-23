@@ -20,6 +20,11 @@ public:
 
 	void set_resizable(const bool enable);
 
+	/// @brief 读取qss文件并设置
+	/// @param[in] filePath qss文件的路径
+	/// @return 返回设置样式是否成功
+	bool set_style_file(const QString& filePath);
+
 protected:
 	bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override;
 

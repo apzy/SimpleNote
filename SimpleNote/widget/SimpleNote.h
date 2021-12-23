@@ -12,5 +12,5 @@ public:
     SimpleNote(QWidget *parent = Q_NULLPTR);
 
 private:
-    Ui::SimpleNoteClass ui;
+    Ui::SimpleNote ui;
 };

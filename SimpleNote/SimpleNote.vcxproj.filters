@@ -24,6 +24,9 @@
     <Filter Include="Source Files\lib_moc">
       <UniqueIdentifier>{3951f864-6056-4b06-87d3-63a80da7b863}</UniqueIdentifier>
     </Filter>
+    <Filter Include="qss">
+      <UniqueIdentifier>{54c8e50a-9945-47d1-9553-a279441f8540}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="SimpleNote.qrc">
@@ -53,5 +56,10 @@
     <QtUic Include="widget\SimpleNote.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="qss\SimpleNote.qss">
+      <Filter>qss</Filter>
+    </None>
   </ItemGroup>
 </Project>

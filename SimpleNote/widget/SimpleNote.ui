@@ -1,10 +1,8 @@
-<UI version="4.0" >
- <class>SimpleNoteClass</class>
- <widget class="QWidget" name="SimpleNoteClass" >
-  <property name="objectName" >
-   <string notr="true">SimpleNoteClass</string>
-  </property>
-  <property name="geometry" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SimpleNote</class>
+ <widget class="QWidget" name="SimpleNote">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -12,14 +10,13 @@
     <height>400</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>SimpleNote</string>
-  </property>$centralwidget$
+  </property>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-   <include location="SimpleNote.qrc"/>
+  <include location="../SimpleNote.qrc"/>
  </resources>
  <connections/>
-</UI>
+</ui>
