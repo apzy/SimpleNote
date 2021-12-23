@@ -2,8 +2,9 @@
 
 #include <QtWidgets/QWidget>
 #include "ui_SimpleNote.h"
+#include <FramelessWidget.h>
 
-class SimpleNote : public QWidget
+class SimpleNote : public FramelessWidget 
 {
     Q_OBJECT
 

@@ -1,7 +1,7 @@
 #include "SimpleNote.h"
 
 SimpleNote::SimpleNote(QWidget *parent)
-    : QWidget(parent)
+    : FramelessWidget(parent)
 {
     ui.setupUi(this);
 }

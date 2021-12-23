@@ -21,6 +21,9 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="Source Files\lib_moc">
+      <UniqueIdentifier>{3951f864-6056-4b06-87d3-63a80da7b863}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="SimpleNote.qrc">
@@ -33,6 +36,12 @@
     </ClCompile>
     <ClCompile Include="widget\SimpleNote.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\moc\moc_FramelessWidget.cpp">
+      <Filter>Source Files\lib_moc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\moc\moc_RichEditor.cpp">
+      <Filter>Source Files\lib_moc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
