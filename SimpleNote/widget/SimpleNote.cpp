@@ -1,6 +1,8 @@
 #include "SimpleNote.h"
 #include <qevent.h>
 
+#include "NoteWidget.h"
+
 SimpleNote::SimpleNote(QWidget* parent)
     : FramelessWidget(parent)
     , m_bDrag(false)
@@ -43,7 +45,14 @@ void SimpleNote::mouseMoveEvent(QMouseEvent* event)
     }
 }
 
+void SimpleNote::slot_new()
+{
+    NoteWidget* note = new NoteWidget();
+    note->show();
+}
+
 void SimpleNote::connect_all()
 {
     connect(ui.btn_close, SIGNAL(clicked()), this, SLOT(slot_close()));
+    connect(ui.btn_new, SIGNAL(clicked()), this, SLOT(slot_new()));
 }

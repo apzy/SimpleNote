@@ -62,12 +62,17 @@
     <ClCompile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../include;.\widget;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>QtBaseControl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\widget;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -98,6 +103,7 @@
   <ItemGroup>
     <ClCompile Include="..\lib\moc\moc_FramelessWidget.cpp" />
     <ClCompile Include="..\lib\moc\moc_RichEditor.cpp" />
+    <ClCompile Include="widget\NoteWidget.cpp" />
     <ClCompile Include="widget\SimpleNote.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -105,13 +111,18 @@
     <QtMoc Include="widget\SimpleNote.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="widget\NoteWidget.ui" />
     <QtUic Include="widget\SimpleNote.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="res\SimpleNote.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\qss\NoteWidget.qss" />
     <None Include="res\qss\SimpleNote.qss" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="widget\NoteWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

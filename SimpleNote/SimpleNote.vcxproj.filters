@@ -41,14 +41,23 @@
     <ClCompile Include="..\lib\moc\moc_RichEditor.cpp">
       <Filter>Source Files\lib_moc</Filter>
     </ClCompile>
+    <ClCompile Include="widget\NoteWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="widget\SimpleNote.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="widget\NoteWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="widget\SimpleNote.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="widget\NoteWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -59,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\qss\SimpleNote.qss">
+      <Filter>qss</Filter>
+    </None>
+    <None Include="res\qss\NoteWidget.qss">
       <Filter>qss</Filter>
     </None>
   </ItemGroup>

@@ -1,16 +1,18 @@
-#ifndef __SIMPLENOTE_H__
-#define __SIMPLENOTE_H__ 
+#ifndef __NOTEWIDGET_H__
+#define __NOTEWIDGET_H__ 
 
-#include <QtWidgets/QWidget>
-#include "ui_SimpleNote.h"
 #include <FramelessWidget.h>
+#include <QWidget>
 
-class SimpleNote : public FramelessWidget 
+namespace Ui { class NoteWidget; };
+
+class NoteWidget : public FramelessWidget
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    SimpleNote(QWidget *parent = Q_NULLPTR);
+	NoteWidget(QWidget* parent = Q_NULLPTR);
+	~NoteWidget();
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
@@ -25,11 +27,11 @@ private:
     void connect_all();
 
 private:
-    Ui::SimpleNote ui;
+	Ui::NoteWidget* ui;
 
-    bool m_bDrag;
-    QPoint m_windowStartPos;
-    QPoint m_mousePressPos;
+	bool m_bDrag;
+	QPoint m_windowStartPos;
+	QPoint m_mousePressPos;
 };
 
 #endif

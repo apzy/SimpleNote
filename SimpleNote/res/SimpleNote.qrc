@@ -3,5 +3,7 @@
         <file>qss/SimpleNote.qss</file>
         <file>img/add.png</file>
         <file>img/close.png</file>
+        <file>img/more.png</file>
+        <file>qss/NoteWidget.qss</file>
     </qresource>
 </RCC>
