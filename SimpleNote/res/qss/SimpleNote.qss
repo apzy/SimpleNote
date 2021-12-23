@@ -1,0 +1,20 @@
+QPushButton
+{
+	border:none;
+}
+
+QPushButton::hover
+{
+	background-color:#f3f3f3;
+}
+
+QPushButton::pressed
+{
+	background-color:#dcdcdc;
+}
+
+#SimpleNote
+{
+	background-color:#FFFFFF;
+	border:1px solid #000000;
+}

@@ -99,7 +99,6 @@
     <ClCompile Include="..\lib\moc\moc_FramelessWidget.cpp" />
     <ClCompile Include="..\lib\moc\moc_RichEditor.cpp" />
     <ClCompile Include="widget\SimpleNote.cpp" />
-    <QtRcc Include="SimpleNote.qrc" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +108,10 @@
     <QtUic Include="widget\SimpleNote.ui" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="qss\SimpleNote.qss" />
+    <QtRcc Include="res\SimpleNote.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\qss\SimpleNote.qss" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

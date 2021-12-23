@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/SimpleNote">
         <file>qss/SimpleNote.qss</file>
+        <file>img/add.png</file>
+        <file>img/close.png</file>
     </qresource>
 </RCC>

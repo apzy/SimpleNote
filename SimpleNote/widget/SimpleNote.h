@@ -11,6 +11,12 @@ class SimpleNote : public FramelessWidget
 public:
     SimpleNote(QWidget *parent = Q_NULLPTR);
 
+private Q_SLOTS:
+    void slot_close();
+    
+private:
+    void connect_all();
+
 private:
     Ui::SimpleNote ui;
 };

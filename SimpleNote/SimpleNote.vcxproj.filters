@@ -29,11 +29,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="SimpleNote.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -58,7 +53,12 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <None Include="qss\SimpleNote.qss">
+    <QtRcc Include="res\SimpleNote.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\qss\SimpleNote.qss">
       <Filter>qss</Filter>
     </None>
   </ItemGroup>
