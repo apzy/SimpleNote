@@ -21,6 +21,7 @@ QPushButton::checked
 #NoteWidget
 {
 	background-color:#fff7d1;
+	border:1px solid #696969;
 }
 
 #widget_title

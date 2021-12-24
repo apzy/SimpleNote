@@ -10,6 +10,8 @@ NoteWidget::NoteWidget(QWidget* parent)
 	ui = new Ui::NoteWidget();
 	ui->setupUi(this);
 
+	setWindowFlag(Qt::SubWindow);
+
 	set_style_file(":/SimpleNote/qss/NoteWidget.qss");
 
 	connect_all();

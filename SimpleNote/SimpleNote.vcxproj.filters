@@ -27,12 +27,21 @@
     <Filter Include="qss">
       <UniqueIdentifier>{54c8e50a-9945-47d1-9553-a279441f8540}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control">
+      <UniqueIdentifier>{f74326cb-4153-4735-b66c-90a79be41ad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\widget">
+      <UniqueIdentifier>{b9689fea-689c-4af0-b330-a59bd8d5e19b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\widget">
+      <UniqueIdentifier>{e20a2bdb-4124-47a0-8658-12768a76219e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\control">
+      <UniqueIdentifier>{f5013ed6-8cc4-4576-83f8-b9334ec4d0ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widget\SimpleNote.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\lib\moc\moc_FramelessWidget.cpp">
@@ -42,15 +51,21 @@
       <Filter>Source Files\lib_moc</Filter>
     </ClCompile>
     <ClCompile Include="widget\NoteWidget.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="widget\SimpleNote.cpp">
+      <Filter>Source Files\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleNoteControl.cpp">
+      <Filter>Source Files\control</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="widget\SimpleNote.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="widget\NoteWidget.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\widget</Filter>
+    </QtMoc>
+    <QtMoc Include="widget\SimpleNote.h">
+      <Filter>Header Files\widget</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -73,5 +88,13 @@
     <None Include="res\qss\NoteWidget.qss">
       <Filter>qss</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="control\ComDefs.h">
+      <Filter>Header Files\control</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleNoteControl.h">
+      <Filter>Header Files\control</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
