@@ -5,15 +5,36 @@ QPushButton
 
 QPushButton::hover
 {
-	background-color:#f3f3f3;
+	background-color:#12000000;
 }
 
 QPushButton::pressed
 {
-	background-color:#dcdcdc;
+	background-color:#22000000;
+}
+
+QPushButton::checked
+{
+	background-color:#22000000;
 }
 
 #NoteWidget
 {
-	background-color:#FFFFFF;
+	background-color:#fff7d1;
+}
+
+#widget_title
+{
+	background-color:#fff2ab;
+}
+
+#editor
+{
+	border:none;
+	background-color:#fff7d1;
+}
+
+#widget_function
+{
+	border-top:1px solid #333f3f3f;
 }

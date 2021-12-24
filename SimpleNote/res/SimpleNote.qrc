@@ -5,5 +5,9 @@
         <file>img/close.png</file>
         <file>img/more.png</file>
         <file>qss/NoteWidget.qss</file>
+        <file>img/font_bold.png</file>
+        <file>img/font_del.png</file>
+        <file>img/font_italic.png</file>
+        <file>img/font_under_line.png</file>
     </qresource>
 </RCC>
