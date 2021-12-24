@@ -58,8 +58,39 @@ void NoteWidget::slot_new()
     note->show();
 }
 
+void NoteWidget::slot_click_bold()
+{
+	if (ui->btn_bold->isChecked())
+	{
+		ui->editor->text_normal();
+	}
+	else
+	{
+		ui->editor->text_bold();
+	}
+}
+
+void NoteWidget::slot_click_italic()
+{
+	ui->editor->text_italic(!ui->btn_italic->isChecked());
+}
+
+void NoteWidget::slot_click_under_line()
+{
+	ui->editor->text_under_line(!ui->btn_under_line->isChecked());
+}
+
+void NoteWidget::slot_click_del_line()
+{
+	ui->editor->text_del_line(!ui->btn_del_line->isChecked());
+}
+
 void NoteWidget::connect_all()
 {
     connect(ui->btn_close, SIGNAL(clicked()), this, SLOT(slot_close()));
     connect(ui->btn_add, SIGNAL(clicked()), this, SLOT(slot_new()));
+    connect(ui->btn_bold, SIGNAL(pressed()), this, SLOT(slot_click_bold()));
+    connect(ui->btn_italic, SIGNAL(pressed()), this, SLOT(slot_click_italic()));
+    connect(ui->btn_under_line, SIGNAL(pressed()), this, SLOT(slot_click_under_line()));
+    connect(ui->btn_del_line, SIGNAL(pressed()), this, SLOT(slot_click_del_line()));
 }

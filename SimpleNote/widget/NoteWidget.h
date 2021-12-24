@@ -22,6 +22,10 @@ protected:
 private Q_SLOTS:
     void slot_close();
     void slot_new();
+	void slot_click_bold();
+	void slot_click_italic();
+	void slot_click_under_line();
+	void slot_click_del_line();
     
 private:
     void connect_all();
