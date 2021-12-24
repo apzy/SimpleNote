@@ -2,6 +2,7 @@
 #include <qevent.h>
 
 #include "NoteWidget.h"
+#include "../control/SimpleNoteControl.h"
 
 SimpleNote::SimpleNote(QWidget* parent)
     : FramelessWidget(parent)
@@ -15,7 +16,10 @@ SimpleNote::SimpleNote(QWidget* parent)
 
 void SimpleNote::slot_close()
 {
-    this->close();
+    if (SimpleNoteControl::instance()->exist_widget_show())
+        this->hide();
+    else
+        this->close();
 }
 
 void SimpleNote::mousePressEvent(QMouseEvent* event)
@@ -47,7 +51,15 @@ void SimpleNote::mouseMoveEvent(QMouseEvent* event)
 
 void SimpleNote::slot_new()
 {
+    QUuid uuid = SimpleNoteControl::instance()->add_note();
+    int iPosX = this->pos().x() + this->width() + MARGIN_DEFAULT;
+    int iPosY = this->pos().y();
+    SimpleNoteControl::instance()->update_widget_size(uuid, NOTE_WIDTH, NOTE_HEIGHT);
+    SimpleNoteControl::instance()->update_widget_pos(uuid, iPosX, iPosY);
+
     NoteWidget* note = new NoteWidget();
+    note->setGeometry(iPosX, iPosY, NOTE_WIDTH, NOTE_HEIGHT);
+    note->set_uuid(uuid);
     note->show();
 }
 

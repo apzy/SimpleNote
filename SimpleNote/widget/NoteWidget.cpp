@@ -2,6 +2,7 @@
 #include "ui_NoteWidget.h"
 
 #include <qevent.h>
+#include "../control/SimpleNoteControl.h"
 
 NoteWidget::NoteWidget(QWidget* parent)
 	: FramelessWidget(parent)
@@ -20,6 +21,16 @@ NoteWidget::NoteWidget(QWidget* parent)
 NoteWidget::~NoteWidget()
 {
 	delete ui;
+}
+
+void NoteWidget::set_uuid(const QUuid& uuid)
+{
+	m_uuid = uuid;
+}
+
+QUuid NoteWidget::get_uuid()
+{
+	return m_uuid;
 }
 
 void NoteWidget::mousePressEvent(QMouseEvent* event)

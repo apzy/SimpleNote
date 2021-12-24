@@ -3,6 +3,7 @@
 
 #include <FramelessWidget.h>
 #include <QWidget>
+#include <quuid.h>
 
 namespace Ui { class NoteWidget; };
 
@@ -13,6 +14,10 @@ class NoteWidget : public FramelessWidget
 public:
 	NoteWidget(QWidget* parent = Q_NULLPTR);
 	~NoteWidget();
+
+	void set_uuid(const QUuid& uuid);
+
+	QUuid get_uuid();
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
@@ -36,6 +41,8 @@ private:
 	bool m_bDrag;
 	QPoint m_windowStartPos;
 	QPoint m_mousePressPos;
+
+	QUuid m_uuid;
 };
 
 #endif

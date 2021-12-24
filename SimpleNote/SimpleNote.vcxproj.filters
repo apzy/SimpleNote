@@ -56,7 +56,7 @@
     <ClCompile Include="widget\SimpleNote.cpp">
       <Filter>Source Files\widget</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleNoteControl.cpp">
+    <ClCompile Include="control\SimpleNoteControl.cpp">
       <Filter>Source Files\control</Filter>
     </ClCompile>
   </ItemGroup>
@@ -93,7 +93,7 @@
     <ClInclude Include="control\ComDefs.h">
       <Filter>Header Files\control</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleNoteControl.h">
+    <ClInclude Include="control\SimpleNoteControl.h">
       <Filter>Header Files\control</Filter>
     </ClInclude>
   </ItemGroup>

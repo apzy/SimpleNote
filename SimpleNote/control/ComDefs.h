@@ -2,11 +2,12 @@
 #define __COMDEFS_H__ 
 
 #include <QString>
+#include <QDateTime>
+#include <quuid.h>
 
-struct NOTE_INFO_STRUCT 
-{
-	QString filePath;
-};
+#define NOTE_WIDTH 304
+#define NOTE_HEIGHT 312
+#define MARGIN_DEFAULT 12
 
 struct NOTE_WIDGET_INFO_STRUCT
 {
@@ -15,7 +16,14 @@ struct NOTE_WIDGET_INFO_STRUCT
 	int iPosY;
 	int iWidth;
 	int iHeight;
-	NOTE_INFO_STRUCT info;
+};
+
+struct NOTE_INFO_STRUCT 
+{
+	QUuid uuid;
+	QString filePath;
+	QDateTime updateTime;
+	NOTE_WIDGET_INFO_STRUCT widgetInfo;
 };
 
 #endif
