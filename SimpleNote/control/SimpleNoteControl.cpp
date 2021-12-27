@@ -32,7 +32,6 @@ QUuid SimpleNoteControl::add_note()
 {
     NOTE_INFO_STRUCT info;
     info.uuid = QUuid::createUuid();
-    info.widgetInfo.bShow = true;
     m_noteList.push_back(info);
     return info.uuid;
 }
@@ -45,6 +44,18 @@ void SimpleNoteControl::remove_note(const QUuid& uuid)
         if (m_noteList.at(i).uuid == uuid)
         {
             m_noteList.removeAt(i);
+            break;
+        }
+    }
+}
+
+void SimpleNoteControl::close_note(const QUuid& uuid)
+{
+    for (auto& item : m_noteList)
+    {
+        if (item.uuid == uuid)
+        {
+            item.widgetInfo.bShow = false;
             break;
         }
     }

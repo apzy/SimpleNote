@@ -54,12 +54,10 @@ void SimpleNote::slot_new()
     QUuid uuid = SimpleNoteControl::instance()->add_note();
     int iPosX = this->pos().x() + this->width() + MARGIN_DEFAULT;
     int iPosY = this->pos().y();
-    SimpleNoteControl::instance()->update_widget_size(uuid, NOTE_WIDTH, NOTE_HEIGHT);
     SimpleNoteControl::instance()->update_widget_pos(uuid, iPosX, iPosY);
 
-    NoteWidget* note = new NoteWidget();
+    NoteWidget* note = new NoteWidget(uuid);
     note->setGeometry(iPosX, iPosY, NOTE_WIDTH, NOTE_HEIGHT);
-    note->set_uuid(uuid);
     note->show();
 }
 

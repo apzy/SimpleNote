@@ -12,10 +12,8 @@ class NoteWidget : public FramelessWidget
 	Q_OBJECT
 
 public:
-	NoteWidget(QWidget* parent = Q_NULLPTR);
+	NoteWidget(const QUuid& uuid, QWidget* parent = Q_NULLPTR);
 	~NoteWidget();
-
-	void set_uuid(const QUuid& uuid);
 
 	QUuid get_uuid();
 
@@ -33,6 +31,8 @@ private Q_SLOTS:
 	void slot_click_del_line();
     
 private:
+	void init_view();
+
     void connect_all();
 
 private:

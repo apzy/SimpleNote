@@ -9,5 +9,7 @@
         <file>img/font_del.png</file>
         <file>img/font_italic.png</file>
         <file>img/font_under_line.png</file>
+        <file>img/cancel_top.png</file>
+        <file>img/top.png</file>
     </qresource>
 </RCC>

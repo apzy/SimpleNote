@@ -12,10 +12,21 @@
 struct NOTE_WIDGET_INFO_STRUCT
 {
 	bool bShow;
+	bool bTop;
 	int iPosX;
 	int iPosY;
 	int iWidth;
 	int iHeight;
+
+	NOTE_WIDGET_INFO_STRUCT()
+	{
+		bShow = true;
+		bTop = true;
+		iWidth = NOTE_WIDTH;
+		iHeight = NOTE_HEIGHT;
+		iPosX = 0;
+		iPosY = 0;
+	}
 };
 
 struct NOTE_INFO_STRUCT 

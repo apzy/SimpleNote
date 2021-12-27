@@ -4,16 +4,17 @@
 #include <qevent.h>
 #include "../control/SimpleNoteControl.h"
 
-NoteWidget::NoteWidget(QWidget* parent)
+NoteWidget::NoteWidget(const QUuid& uuid, QWidget* parent)
 	: FramelessWidget(parent)
+	, m_uuid(uuid)
 	, m_bDrag(false)
 {
 	ui = new Ui::NoteWidget();
 	ui->setupUi(this);
 
-	setWindowFlag(Qt::SubWindow);
-
 	set_style_file(":/SimpleNote/qss/NoteWidget.qss");
+
+	init_view();
 
 	connect_all();
 }
@@ -21,11 +22,6 @@ NoteWidget::NoteWidget(QWidget* parent)
 NoteWidget::~NoteWidget()
 {
 	delete ui;
-}
-
-void NoteWidget::set_uuid(const QUuid& uuid)
-{
-	m_uuid = uuid;
 }
 
 QUuid NoteWidget::get_uuid()
@@ -62,13 +58,20 @@ void NoteWidget::mouseMoveEvent(QMouseEvent* event)
 
 void NoteWidget::slot_close()
 {
+	SimpleNoteControl::instance()->close_note(m_uuid);
 	close();
 }
 
 void NoteWidget::slot_new()
 {
-    NoteWidget* note = new NoteWidget();
-    note->show();
+	QUuid uuid = SimpleNoteControl::instance()->add_note();
+	int iPosX = this->pos().x() + this->width() + MARGIN_DEFAULT;
+	int iPosY = this->pos().y();
+	SimpleNoteControl::instance()->update_widget_pos(uuid, iPosX, iPosY);
+
+	NoteWidget* note = new NoteWidget(uuid);
+	note->setGeometry(iPosX, iPosY, NOTE_WIDTH, NOTE_HEIGHT);
+	note->show();
 }
 
 void NoteWidget::slot_click_bold()
@@ -96,6 +99,16 @@ void NoteWidget::slot_click_under_line()
 void NoteWidget::slot_click_del_line()
 {
 	ui->editor->text_del_line(!ui->btn_del_line->isChecked());
+}
+
+void NoteWidget::init_view()
+{
+	setWindowFlag(Qt::SubWindow);
+
+	QIcon icon;
+	icon.addPixmap(QPixmap(":/SimpleNote/img/top.png"), QIcon::Normal, QIcon::Off);
+	icon.addPixmap(QPixmap(":/SimpleNote/img/cancle_top.png"), QIcon::Normal, QIcon::On);
+	ui->btn_top->setIcon(icon);
 }
 
 void NoteWidget::connect_all()
