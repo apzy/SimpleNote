@@ -29,6 +29,7 @@ private Q_SLOTS:
 	void slot_click_italic();
 	void slot_click_under_line();
 	void slot_click_del_line();
+	void slot_click_top();
     
 private:
 	void init_view();

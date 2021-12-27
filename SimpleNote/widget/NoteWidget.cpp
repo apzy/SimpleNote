@@ -101,14 +101,34 @@ void NoteWidget::slot_click_del_line()
 	ui->editor->text_del_line(!ui->btn_del_line->isChecked());
 }
 
+void NoteWidget::slot_click_top()
+{
+	if (ui->btn_top->isChecked())
+	{
+		setWindowFlags(windowFlags() & ~Qt::WindowStaysOnTopHint);
+		ui->btn_top->setChecked(false);
+	}
+	else
+	{
+		setWindowFlag(Qt::WindowStaysOnTopHint);
+		ui->btn_top->setChecked(true);
+	}
+	// 设置窗口置顶后要重新调用show()显示窗口
+	// 因为setWindowFlag是调用setParent设置窗口样式时
+	show();
+}
+
 void NoteWidget::init_view()
 {
 	setWindowFlag(Qt::SubWindow);
 
 	QIcon icon;
 	icon.addPixmap(QPixmap(":/SimpleNote/img/top.png"), QIcon::Normal, QIcon::Off);
-	icon.addPixmap(QPixmap(":/SimpleNote/img/cancle_top.png"), QIcon::Normal, QIcon::On);
+	icon.addPixmap(QPixmap(":/SimpleNote/img/cancel_top.png"), QIcon::Normal, QIcon::On);
 	ui->btn_top->setIcon(icon);
+
+	slot_click_top();
+	ui->btn_top->setChecked(true);
 }
 
 void NoteWidget::connect_all()
@@ -119,4 +139,5 @@ void NoteWidget::connect_all()
     connect(ui->btn_italic, SIGNAL(pressed()), this, SLOT(slot_click_italic()));
     connect(ui->btn_under_line, SIGNAL(pressed()), this, SLOT(slot_click_under_line()));
     connect(ui->btn_del_line, SIGNAL(pressed()), this, SLOT(slot_click_del_line()));
+    connect(ui->btn_top, SIGNAL(pressed()), this, SLOT(slot_click_top()));
 }
