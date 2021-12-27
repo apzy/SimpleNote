@@ -15,6 +15,8 @@ public:
 
 	void close_note(const QUuid& uuid);
 
+	const NOTE_INFO_STRUCT& get_note_info(const QUuid& uuid);
+
 	void update_widget_pos(const QUuid& uuid, const int& x, const int& y);
 
 	void update_widget_size(const QUuid& uuid, const int& width, const int& height);

@@ -104,6 +104,7 @@
     <ClCompile Include="..\lib\moc\moc_FramelessWidget.cpp" />
     <ClCompile Include="..\lib\moc\moc_RichEditor.cpp" />
     <ClCompile Include="control\SimpleNoteControl.cpp" />
+    <ClCompile Include="Utils\QtUtils.cpp" />
     <ClCompile Include="widget\NoteWidget.cpp" />
     <ClCompile Include="widget\SimpleNote.cpp" />
     <ClCompile Include="main.cpp" />
@@ -128,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="control\ComDefs.h" />
     <ClInclude Include="control\SimpleNoteControl.h" />
+    <ClInclude Include="Utils\QtUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -39,6 +39,12 @@
     <Filter Include="Header Files\control">
       <UniqueIdentifier>{f5013ed6-8cc4-4576-83f8-b9334ec4d0ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{05a929be-4e82-40b8-9230-9dd11c0eb95d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{13a59c36-27a6-41ff-bb6f-7211cf175674}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -58,6 +64,9 @@
     </ClCompile>
     <ClCompile Include="control\SimpleNoteControl.cpp">
       <Filter>Source Files\control</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\QtUtils.cpp">
+      <Filter>Source Files\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="control\SimpleNoteControl.h">
       <Filter>Header Files\control</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\QtUtils.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

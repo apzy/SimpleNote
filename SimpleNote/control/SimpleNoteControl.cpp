@@ -1,5 +1,7 @@
 #include "SimpleNoteControl.h"
 #include <QMutex>
+#include <qstandardpaths.h>
+#include <QFile>
 
 QMutex g_noteControlMutex;
 
@@ -32,6 +34,8 @@ QUuid SimpleNoteControl::add_note()
 {
     NOTE_INFO_STRUCT info;
     info.uuid = QUuid::createUuid();
+    info.filePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/"
+        + info.uuid.toString(QUuid::Id128) + ".html";
     m_noteList.push_back(info);
     return info.uuid;
 }
@@ -43,6 +47,7 @@ void SimpleNoteControl::remove_note(const QUuid& uuid)
     {
         if (m_noteList.at(i).uuid == uuid)
         {
+            QFile::remove(m_noteList.at(i).filePath);
             m_noteList.removeAt(i);
             break;
         }
@@ -59,6 +64,18 @@ void SimpleNoteControl::close_note(const QUuid& uuid)
             break;
         }
     }
+}
+
+const NOTE_INFO_STRUCT& SimpleNoteControl::get_note_info(const QUuid& uuid)
+{
+    for (auto& item : m_noteList)
+    {
+        if (item.uuid == uuid)
+        {
+            return item;
+        }
+    }
+    throw "item not found";
 }
 
 void SimpleNoteControl::update_widget_pos(const QUuid& uuid, const int& x, const int& y)

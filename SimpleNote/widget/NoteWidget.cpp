@@ -2,20 +2,20 @@
 #include "ui_NoteWidget.h"
 
 #include <qevent.h>
+#include <QTimer>
 #include "../control/SimpleNoteControl.h"
 
 NoteWidget::NoteWidget(const QUuid& uuid, QWidget* parent)
 	: FramelessWidget(parent)
 	, m_uuid(uuid)
 	, m_bDrag(false)
+	, m_info(SimpleNoteControl::instance()->get_note_info(m_uuid))
 {
 	ui = new Ui::NoteWidget();
 	ui->setupUi(this);
 
 	set_style_file(":/SimpleNote/qss/NoteWidget.qss");
-
 	init_view();
-
 	connect_all();
 }
 
@@ -58,7 +58,19 @@ void NoteWidget::mouseMoveEvent(QMouseEvent* event)
 
 void NoteWidget::slot_close()
 {
-	SimpleNoteControl::instance()->close_note(m_uuid);
+	if (ui->editor->toPlainText().isEmpty())
+	{
+		SimpleNoteControl::instance()->remove_note(m_uuid);
+	}
+	else
+	{
+		if (m_saveTimer->isActive())
+		{
+			m_saveTimer->stop();
+			slot_save_timer_update();
+		}
+		SimpleNoteControl::instance()->close_note(m_uuid);
+	}
 	close();
 }
 
@@ -118,6 +130,23 @@ void NoteWidget::slot_click_top()
 	show();
 }
 
+void NoteWidget::slot_editor_text_changed()
+{
+	m_saveTimer->stop();
+	m_saveTimer->start();
+}
+
+void NoteWidget::slot_editor_format_changed(const QTextCharFormat &format)
+{
+	qDebug("format changed");
+}
+
+void NoteWidget::slot_save_timer_update()
+{
+	m_saveTimer->stop();
+	ui->editor->save_file(m_info.filePath);
+}
+
 void NoteWidget::init_view()
 {
 	setWindowFlag(Qt::SubWindow);
@@ -129,6 +158,9 @@ void NoteWidget::init_view()
 
 	slot_click_top();
 	ui->btn_top->setChecked(true);
+
+	m_saveTimer = new QTimer();
+	m_saveTimer->setInterval(2000);
 }
 
 void NoteWidget::connect_all()
@@ -140,4 +172,8 @@ void NoteWidget::connect_all()
     connect(ui->btn_under_line, SIGNAL(pressed()), this, SLOT(slot_click_under_line()));
     connect(ui->btn_del_line, SIGNAL(pressed()), this, SLOT(slot_click_del_line()));
     connect(ui->btn_top, SIGNAL(pressed()), this, SLOT(slot_click_top()));
+
+	connect(ui->editor, &QTextEdit::textChanged, this, &NoteWidget::slot_editor_text_changed);
+	connect(ui->editor, &QTextEdit::currentCharFormatChanged, this, &NoteWidget::slot_editor_format_changed);
+	connect(m_saveTimer, &QTimer::timeout, this, &NoteWidget::slot_save_timer_update);
 }
